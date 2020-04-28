@@ -4,7 +4,10 @@ shm:
 	gcc -o shm_write practice_2_sharedm_write.c -lrt 
 	gcc -o shm_print practice_2_sharedm_print.c -lrt 
 udp:
-	gcc -o server practice_3_udp_server.c
-	gcc -o client practice_3_udp_client.c
+	gcc -o server_udp practice_3_udp_server.c
+	gcc -o client_udp practice_3_udp_client.c
+client-server:
+	gcc -o server practice_4_server.c
+	gcc -o client practice_4_client.c
 clean:
-	rm fork shm_print shm_write client server
+	rm fork shm_print shm_write client_udp server_udp client server
