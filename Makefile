@@ -9,5 +9,7 @@ udp:
 client-server:
 	gcc -o server practice_4_server.c
 	gcc -o client practice_4_client.c
+memory:
+	gcc -o memory practice_5_memory.c
 clean:
-	rm fork shm_print shm_write client_udp server_udp client server
+	rm fork shm_print shm_write client_udp server_udp client server memory
