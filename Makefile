@@ -11,5 +11,6 @@ client-server:
 	gcc -o client practice_4_client.c
 memory:
 	gcc -o memory practice_5_memory.c
+	gcc -o cache practice_5_cache.c
 clean:
-	rm fork shm_print shm_write client_udp server_udp client server memory
+	rm fork shm_print shm_write client_udp server_udp client server memory cache
