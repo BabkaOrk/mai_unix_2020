@@ -25,7 +25,7 @@ int main (int argc, char ** argv) {
     	return 1;
     }
 
-    printf("Got from shared memory: %s\n", addr);
+    printf("Got from shared memory: %d\n", *addr);
 
 
     munmap(addr, SHARED_MEMORY_OBJECT_SIZE);

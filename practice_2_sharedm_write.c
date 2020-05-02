@@ -29,7 +29,7 @@ int main (int argc, char ** argv) {
     len = strlen(scnt);
     len = (len<=SHARED_MEMORY_OBJECT_SIZE)?len:SHARED_MEMORY_OBJECT_SIZE;
 
-    if ( (shm = shm_open(SHARED_MEMORY_OBJECT_NAME, O_RDWR, 0777)) == -1 ) {
+    if ( (shm = shm_open(SHARED_MEMORY_OBJECT_NAME, O_CREAT|O_RDWR, 0777)) == -1 ) {
         perror("shm_open");
         return 1;
     }
@@ -46,9 +46,13 @@ int main (int argc, char ** argv) {
     }
 
     while(1){
-        snprintf( scnt, 3, "%d", cnt );
-        memcpy(addr, scnt, len);
-        addr[len] = '\0';
+        // snprintf( scnt, 3, "%d", cnt );
+        // memcpy(addr, scnt, len);
+        // addr[len] = '\0';
+        int* p_cnt;
+        p_cnt = (int*)addr;
+        *p_cnt = cnt;
+
         printf("%d -> shared memory\n", cnt);
         printf("Shared memory filled\n");
         cnt++;
